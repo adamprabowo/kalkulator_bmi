@@ -14,3 +14,29 @@ const kNumberTextStyle = TextStyle(
   fontSize: 50.0,
   fontWeight: FontWeight.w900,
 );
+
+const kCalculateTextStyle = TextStyle(
+  fontSize: 20.0,
+  fontWeight: FontWeight.w500,
+);
+
+const kResultTitleTextStyle = TextStyle(
+  fontSize: 40.0,
+  fontWeight: FontWeight.w500,
+);
+
+const kResultTextStyle = TextStyle(
+  color: Color(0xFF24D876),
+  fontSize: 22.0,
+  fontWeight: FontWeight.bold,
+);
+
+const kBMITextStyle = TextStyle(
+  fontSize: 100.0,
+  fontWeight: FontWeight.bold,
+);
+
+const kBodyResultTextStyle = TextStyle(
+  fontSize: 20.0,
+  fontWeight: FontWeight.bold,
+);
