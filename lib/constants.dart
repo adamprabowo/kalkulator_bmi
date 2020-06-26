@@ -16,7 +16,7 @@ const kNumberTextStyle = TextStyle(
 );
 
 const kCalculateTextStyle = TextStyle(
-  fontSize: 20.0,
+  fontSize: 25.0,
   fontWeight: FontWeight.w500,
 );
 

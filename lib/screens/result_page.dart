@@ -5,6 +5,12 @@ import '../components/bottom_button.dart';
 import '../constants.dart';
 
 class ResultPage extends StatelessWidget {
+  ResultPage({this.bmiCalculate, this.bmiResult, this.bmiInterpretation});
+
+  final String bmiCalculate;
+  final String bmiResult;
+  final String bmiInterpretation;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,26 +33,29 @@ class ResultPage extends StatelessWidget {
             flex: 5,
             child: ReusableCard(
               colour: kActiveCardColor,
-              cardChild: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  Text(
-                    'Normal',
-                    style: kResultTextStyle,
-                    textAlign: TextAlign.center,
-                  ),
-                  Text(
-                    '18.3',
-                    style: kBMITextStyle,
-                    textAlign: TextAlign.center,
-                  ),
-                  Text(
-                    'Normal BMI Result',
-                    style: kBodyResultTextStyle,
-                    textAlign: TextAlign.center,
-                  ),
-                ],
+              cardChild: Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Text(
+                      bmiResult,
+                      style: kResultTextStyle,
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      bmiCalculate,
+                      style: kBMITextStyle,
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      bmiInterpretation,
+                      style: kBodyResultTextStyle,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -55,7 +64,7 @@ class ResultPage extends StatelessWidget {
               onTap: () {
                 Navigator.pop(context);
               },
-              label: 'RE-CALCULATE YOUR BMI',
+              label: 'RE-CALCULATE',
             ),
           )
         ],

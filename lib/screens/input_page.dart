@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../constants.dart';
+import '../calculator_brain.dart';
 import '../components/icon_content.dart';
 import '../components/reusableCard.dart';
-import '../constants.dart';
 import '../components/bottom_button.dart';
 import '../components/round_icon.dart';
 import '../screens/result_page.dart';
@@ -69,7 +70,7 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: ReusableCard(
-              colour: kInactiveCardColor,
+              colour: kActiveCardColor,
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -123,7 +124,7 @@ class _InputPageState extends State<InputPage> {
               children: <Widget>[
                 Expanded(
                   child: ReusableCard(
-                    colour: kInactiveCardColor,
+                    colour: kActiveCardColor,
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -165,7 +166,7 @@ class _InputPageState extends State<InputPage> {
                 ),
                 Expanded(
                   child: ReusableCard(
-                    colour: kInactiveCardColor,
+                    colour: kActiveCardColor,
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -208,17 +209,24 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          BottomButton(onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => ResultPage()));
-          },
-            label: 'CALCULATE YOUR BMI',),
+          BottomButton(
+            onTap: () {
+              CalculatorBrain calc = CalculatorBrain(height: height.toDouble(), weight: weight);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultPage(
+                    bmiCalculate: calc.calculateBMI(),
+                    bmiResult: calc.getResult(),
+                    bmiInterpretation: calc.getInterpretation(),
+                  ),
+                ),
+              );
+            },
+            label: 'CALCULATE',
+          ),
         ],
       ),
     );
   }
 }
-
-
-
-
